@@ -37,4 +37,13 @@ describe('server/app.js', function() {
       done();
     });
   });
+  it('page says Only a couple months left...', (done) => {
+    chai.request(server)
+      .get('/')
+      .end((err, res) => {
+        expect(err).not.exist;
+        expect(JSON.stringify(res.text)).to.contain('Hello World');
+        done();
+      });
+    });
 })
